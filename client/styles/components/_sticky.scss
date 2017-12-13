@@ -1,0 +1,12 @@
+.Sticky {
+  &.sticky {
+    position: fixed;
+    top: 67px;
+    border-radius: 0;
+    width: 18.4%;
+
+    @include breakpoint(laptop) {
+      width: 20%;
+    }
+  }
+}

@@ -1,0 +1,133 @@
+.gc-form-label {
+  font-family: $primary-font;
+  font-size: 12pt;
+  color: black;
+}
+
+.gc-input {
+  height: 36px;
+  display: block;
+  width: 100%;
+  margin-bottom: 4px;
+  font-family: $primary-font;
+  font-size: 14px;
+  color: $dark-grey;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 2px;
+  border: 1px solid $light-grey;
+  border-image: initial;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+
+  &.gc-input-error {
+    border: 1px solid $colour-error;
+  }
+
+  &.gc-input--lg {
+    margin-bottom: 1px;
+    height: 44px;
+    padding: 10px;
+    border-right: none;
+  }
+
+
+  &.gc-input--radius-left{
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &.gc-input--radius-right{
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &.gc-input--addon {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $green;
+  }
+}
+
+.gc-input-box {
+  font-size: 12pt;
+  margin-bottom: 10px;
+  font-family: $primary-font;
+
+
+  @include placeholder {
+    color: red;
+    text-align: right;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.gc-input-item {
+  display: table-cell;
+  width: 100%;
+}
+
+.gc-input-bar{
+  display: table;
+  width: 100%;
+}
+
+input[type=checkbox] {
+  cursor: pointer;
+  position: relative;
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  vertical-align: bottom;
+  border-radius: 2px;
+  border: 1px solid $light-grey;
+
+  &:checked:before {
+    content: '';
+    background: $primary-colour;
+    position: absolute;
+    font-size: 1.4rem;
+    text-align: center;
+    top: 1px;
+    bottom: 1px;
+    right: 1px;
+    left: 1px;
+    border-radius: 1px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.gc-form-heading {
+  font-family: $secondary-font;
+  font-size: 16px;
+  font-weight: 700;
+  color: $green;
+  margin-top: 0;
+}
+
+.checkbox {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.gc-addon {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid $light-grey;
+  color: $grey;
+  background-color: $lightest-grey;
+  height: 36px;
+  width: 36px;
+}
