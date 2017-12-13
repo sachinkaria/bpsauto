@@ -43,60 +43,38 @@ class BookingForm extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <Panel>
-        <Col sm={12} smOffset={0}>
-          <div className="bp-panel-light">
-            <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-              <Row>
-                <Col sm={12} smOffset={0}>
-                  <label>Full Name</label>
-                  <Field name="fullName" placeholder="Full name" className="form-control bp-input bp-margin-bottom" component={renderField} type="string" />
-                </Col>
-              </Row>
-              <Row>
-                <Col sm={12} smOffset={0}>
-                  <label>Email</label>
-                  <Field name="email" placeholder="Email" className="form-control bp-input bp-margin-bottom" component={renderField} type="string" />
-                </Col>
-              </Row>
-              <Row>
-                <Col sm={12} smOffset={0}>
-                  <label>Contact Number</label>
-                  <Field name="contactNumber" placeholder="Contact number" className="form-control bp-input" component={renderField} type="string" />
-                </Col>
-              </Row>
-              <Row>
-                <Col sm={12} smOffset={0}>
-                  <label>Date</label>
-                  <DatePicker />
-                </Col>
-              </Row>
-              <Row>
-                <Col sm={12} smOffset={0}>
-                  <label>Time (approx. 45 minutes)</label>
-                  <Field
-                    name="time"
-                    className="form-control gc-input text-capitalize"
-                    component="select"
-                  >
-                    {TIMES.map(code =>
-                      (
-                        <option key={code} value={code}>
-                          {code}
-                        </option>
-                      )
-                    )}
-                  </Field>
-                </Col>
-              </Row>
-              <Row className="text-center">
-                <Col xs={6} xsOffset={3}>
-                  <Button type="submit" bsSize="large" block className="btn bp-btn bp-btn--orange bp-margin-top">Next</Button>
-                </Col>
-              </Row>
-            </form>
-          </div>
-        </Col>
+      <Panel className="bp-background-dark-grey">
+        <Row>
+          <Col sm={12} smOffset={0}>
+            <div className="bp-panel-light">
+              <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+                <label className="bp-light-grey">Full Name</label>
+                <Field name="fullName" placeholder="e.g John Smith" className="form-control bp-input bp-margin-bottom" component={renderField} type="string" />
+                <label className="bp-light-grey">Email</label>
+                <Field name="email" placeholder="e.g example@example.com" className="form-control bp-input bp-margin-bottom" component={renderField} type="string" />
+                <label className="bp-light-grey">Contact Number</label>
+                <Field name="contactNumber" placeholder="e.g 07123456789" className="form-control bp-input" component={renderField} type="string" />
+                <label className="bp-light-grey">Date</label>
+                <DatePicker />
+                <label className="bp-light-grey">Time (approx. 45 minutes)</label>
+                <Field
+                  name="time"
+                  className="form-control gc-input text-capitalize"
+                  component="select"
+                >
+                  {TIMES.map(code =>
+                    (
+                      <option key={code} value={code}>
+                        {code}
+                      </option>
+                    )
+                  )}
+                </Field>
+                <Button type="submit" bsSize="large" block bsStyle="success" className="btn bp-btn bp-margin-top">Next</Button>
+              </form>
+            </div>
+          </Col>
+        </Row>
       </Panel>
     );
   }
