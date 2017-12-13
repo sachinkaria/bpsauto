@@ -1,20 +1,20 @@
 import React from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
-import { browserHistory, Link } from 'react-router';
-import { connect } from 'react-redux';
+import {Row, Col} from 'react-bootstrap';
+import BookingForm from '../containers/BookingForm';
 
 const Home = () => {
-    return (
-      <div>
-        <section className="section-main">
-          <Row>
-            <Col xs={10} xsOffset={1} md={8} mdOffset={2} >
-              <h1 className="text-left gc-title">BPS Autocare</h1>
-            </Col>
-          </Row>
-        </section>
-      </div>
-    );
+  return (
+    <div>
+      <section className="section-main">
+        <Row>
+          <Col xs={10} xsOffset={1} md={4} mdOffset={4}>
+            <h1 className="text-left bp-profile-heading">Book your MOT online now.</h1>
+            <BookingForm />
+          </Col>
+        </Row>
+      </section>
+    </div>
+  );
 };
 
 export default Home;

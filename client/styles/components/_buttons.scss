@@ -1,19 +1,19 @@
 $image-width: 200px;
 $image-height: 200px;
 
-.gc-btn {
+.bp-btn {
   border: none;
   height: 36px;
   font-size: 14px;
   font-weight: 700;
   border-radius: 3px;
 
-  &.gc-btn--sticky {
+  &.bp-btn--sticky {
     position: fixed;
     bottom: 10px;
   }
 
-  &.gc-btn--sm {
+  &.bp-btn--sm {
     height: 28px;
     font-size: 12px;
     font-weight: 600;
@@ -26,7 +26,7 @@ $image-height: 200px;
     }
   }
 
-  &.gc-btn--white {
+  &.bp-btn--white {
     background-color: white;
     border: 1px solid $green;
     color: $green;
@@ -44,7 +44,7 @@ $image-height: 200px;
     }
   }
 
-  &.gc-btn--orange {
+  &.bp-btn--orange {
     background-color: $primary-colour;
     color: $white;
     font-weight: 500;
@@ -65,7 +65,7 @@ $image-height: 200px;
     }
   }
 
-  &.gc-btn-blue {
+  &.bp-btn-blue {
     background-color: $blue;
     color: $white;
     font-weight: 500;
@@ -81,7 +81,7 @@ $image-height: 200px;
     }
   }
 
-  &.gc-btn-white {
+  &.bp-btn-white {
     border: 1px solid $light-grey;
     background-color: $white;
     color: $dark-grey;
@@ -101,19 +101,19 @@ $image-height: 200px;
       color: $dark-grey;
     }
 
-    &.gc-btn-white--error {
+    &.bp-btn-white--error {
       border: 1px solid $colour-error;
       color: $colour-error;
     }
   }
 }
 
-.gc-btn-primary-lg {
+.bp-btn-primary-lg {
   border: none;
   min-width: 120px;
 }
 
-.gc-btn-radius-right {
+.bp-btn-radius-right {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }

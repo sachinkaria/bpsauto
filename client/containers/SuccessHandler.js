@@ -3,13 +3,13 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 
 const SuccessHandler = (props) => {
-  const classes = classNames('gc-alert gc-alert--success', {
-    'gc-slide-down': props.success
+  const classes = classNames('bp-alert bp-alert--success', {
+    'bp-slide-down': props.success
   });
   return (
     props.success ?
       <div className={classes}>
-        <p className="gc-text gc-white">
+        <p className="bp-text bp-white">
           {props.success}
         </p>
       </div> :

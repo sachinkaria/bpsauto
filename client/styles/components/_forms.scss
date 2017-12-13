@@ -1,10 +1,10 @@
-.gc-form-label {
+.bp-form-label {
   font-family: $primary-font;
   font-size: 12pt;
   color: black;
 }
 
-.gc-input {
+.bp-input {
   height: 36px;
   display: block;
   width: 100%;
@@ -20,11 +20,11 @@
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 
-  &.gc-input-error {
+  &.bp-input-error {
     border: 1px solid $colour-error;
   }
 
-  &.gc-input--lg {
+  &.bp-input--lg {
     margin-bottom: 1px;
     height: 44px;
     padding: 10px;
@@ -32,19 +32,19 @@
   }
 
 
-  &.gc-input--radius-left{
+  &.bp-input--radius-left{
     border-right: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
-  &.gc-input--radius-right{
+  &.bp-input--radius-right{
     border-left: none;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
 
-  &.gc-input--addon {
+  &.bp-input--addon {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
   }
@@ -55,7 +55,7 @@
   }
 }
 
-.gc-input-box {
+.bp-input-box {
   font-size: 12pt;
   margin-bottom: 10px;
   font-family: $primary-font;
@@ -71,12 +71,12 @@
   }
 }
 
-.gc-input-item {
+.bp-input-item {
   display: table-cell;
   width: 100%;
 }
 
-.gc-input-bar{
+.bp-input-bar{
   display: table;
   width: 100%;
 }
@@ -109,7 +109,7 @@ input[type=checkbox] {
   }
 }
 
-.gc-form-heading {
+.bp-form-heading {
   font-family: $secondary-font;
   font-size: 16px;
   font-weight: 700;
@@ -122,7 +122,7 @@ input[type=checkbox] {
   margin-bottom: 7px;
 }
 
-.gc-addon {
+.bp-addon {
   flex: 1;
   padding: 8px;
   border: 1px solid $light-grey;

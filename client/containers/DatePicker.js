@@ -22,7 +22,7 @@ export default class DatePicker extends React.Component {
     const { focused, date } = this.state;
 
     return (
-      <div className="gc-margin-bottom">
+      <div className="bp-margin-bottom">
         <SingleDatePicker
           id="date_input"
           date={date}
@@ -30,6 +30,7 @@ export default class DatePicker extends React.Component {
           onDateChange={this.onDateChange}
           onFocusChange={this.onFocusChange}
           placeholder="Select a Date"
+          numberOfMonths={1}
         />
       </div>
     );

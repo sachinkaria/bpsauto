@@ -1,46 +1,46 @@
-.gc-text {
+.bp-text {
   font-family: $primary-font;
   font-size: 14px;
   color: $dark-grey;
 
-  &.gc-text--slim {
+  &.bp-text--slim {
     font-weight: 300;
   }
 
-  &.gc-text--xs{
+  &.bp-text--xs{
     font-size: 10px;
   }
 
-  &.gc-text--sm{
+  &.bp-text--sm{
     font-size: 12px;
   }
 
-  &.gc-text--lg {
+  &.bp-text--lg {
     font-size: 16px;
   }
 
-  &.gc-text--xl {
+  &.bp-text--xl {
     font-size: 18px;
   }
 
-  &.gc-text--grey {
+  &.bp-text--grey {
     color: $grey;
   }
 
-  &.gc-text--dark-grey {
+  &.bp-text--dark-grey {
     color: $dark-grey;
   }
 
-  &.gc-text--light-grey {
+  &.bp-text--light-grey {
     color: $light-grey;
   }
 }
 
-.gc-bold {
+.bp-bold {
   font-weight: 700;
 }
 
-.gc-title {
+.bp-title {
   font-family: $primary-font;
   font-size: 42px;
   font-weight: 700;
@@ -53,7 +53,7 @@
   }
 }
 
-.gc-heading {
+.bp-heading {
   font-family: $primary-font;
   font-size: 32px;
   font-weight: 700;
@@ -66,7 +66,7 @@
   }
 }
 
-.gc-profile-heading {
+.bp-profile-heading {
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   color: $green;
@@ -76,13 +76,13 @@
   }
 }
 
-.gc-overflow-ellipsis{
+.bp-overflow-ellipsis{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.gc-link-default {
+.bp-link-default {
   color: $grey;
 
   &:hover {
@@ -90,7 +90,7 @@
   }
 }
 
-.gc-list-item {
+.bp-list-item {
   display: inline;
   vertical-align: middle;
   margin-right: 5px;

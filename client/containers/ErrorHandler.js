@@ -3,13 +3,13 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 
 const ErrorHandler = (props) => {
-  const classes = classNames('gc-alert gc-alert--error', {
-    'gc-slide-down': props.error
+  const classes = classNames('bp-alert bp-alert--error', {
+    'bp-slide-down': props.error
   });
   return (
     props.error ?
       <div className={classes}>
-        <p className="gc-text gc-white">
+        <p className="bp-text bp-white">
           {props.error}
         </p>
       </div> :

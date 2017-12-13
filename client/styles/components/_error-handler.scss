@@ -1,4 +1,4 @@
-.gc-alert {
+.bp-alert {
   height: 100px;
   background-color: $colour-error;
   color: white;
@@ -17,11 +17,11 @@
     text-align: center;
   }
 
-  &.gc-alert--error {
+  &.bp-alert--error {
     background-color: $colour-error;
   }
 
-  &.gc-alert--success {
+  &.bp-alert--success {
     background-color: $light-green;
   }
 }

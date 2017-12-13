@@ -6,37 +6,37 @@ import classNames from 'classnames';
 const DashboardNavBar = (props) => {
   return (
     <div>
-      <Navbar className="gc-dashboard-navbar">
+      <Navbar className="bp-dashboard-navbar">
         <ul>
           {
             props.userRole === 'chef' ?
               <div>
-                <li className="gc-dashboard-navbar-item">
+                <li className="bp-dashboard-navbar-item">
                   <Link to={'/dashboard/profile/basics'}>
-                    <p className={classNames('gc-text gc-light-grey', { 'gc-white': props.location.includes('profile') })}>Profile</p>
+                    <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('profile') })}>Profile</p>
                   </Link>
                 </li>
-                <li className="gc-dashboard-navbar-item">
+                <li className="bp-dashboard-navbar-item">
                   <Link to={'/dashboard/account/settings'}>
-                    <p className={classNames('gc-text gc-light-grey', { 'gc-white': props.location.includes('account') })}>Account</p>
+                    <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('account') })}>Account</p>
                   </Link>
                 </li>
-                <li className="gc-dashboard-navbar-item">
+                <li className="bp-dashboard-navbar-item">
                   <Link to={'/dashboard/bookings'}>
-                    <p className={classNames('gc-text gc-light-grey', { 'gc-white': props.location.includes('bookings') })}>Bookings</p>
+                    <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('bookings') })}>Bookings</p>
                   </Link>
                 </li>
               </div>
               :
               <div>
-                <li className="gc-dashboard-navbar-item">
+                <li className="bp-dashboard-navbar-item">
                   <Link to={'/dashboard/account/settings'}>
-                    <p className={classNames('gc-text gc-light-grey', { 'gc-white': props.location.includes('account') })}>Account</p>
+                    <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('account') })}>Account</p>
                   </Link>
                 </li>
-                <li className="gc-dashboard-navbar-item">
+                <li className="bp-dashboard-navbar-item">
                   <Link to={'/dashboard/bookings'}>
-                    <p className={classNames('gc-text gc-light-grey', { 'gc-white': props.location.includes('bookings') })}>Bookings</p>
+                    <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('bookings') })}>Bookings</p>
                   </Link>
                 </li>
               </div>

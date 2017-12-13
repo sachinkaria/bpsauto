@@ -9,6 +9,8 @@ import routes from './config/routes';
 import { AUTH_USER } from './actions/types';
 import { getCurrentUser } from './actions/users';
 
+require('./styles/main.scss');
+
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
 

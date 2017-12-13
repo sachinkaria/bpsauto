@@ -2,21 +2,21 @@ import React from 'react';
 import classNames from 'classnames';
 
 const renderField = (field) => {
-  const classes = classNames('form-control gc-input', {
-    'gc-input-error': field.meta.touched && field.meta.error
+  const classes = classNames('form-control bp-input', {
+    'bp-input-error': field.meta.touched && field.meta.error
   });
 
   const inputClasses = classNames({
-    'gc-flex': field.withAddon
+    'bp-flex': field.withAddon
   });
 
   return (
-    <div className="gc-margin-bottom">
+    <div className="bp-margin-bottom">
       <div className={inputClasses}>
-        {field.withAddon && <span className="gc-addon">{field.addonText}</span>}
+        {field.withAddon && <span className="bp-addon">{field.addonText}</span>}
         <input className={classes} placeholder={field.placeholder} type={field.type} {...field.input} />
       </div>
-      {field.meta.touched && field.meta.error && <div className="gc-red">{field.meta.error}</div>}
+      {field.meta.touched && field.meta.error && <div className="bp-red">{field.meta.error}</div>}
     </div>
   );
 };
