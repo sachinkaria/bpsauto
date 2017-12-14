@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import moment from 'moment';
 import { Col, Panel, Row, Button } from 'react-bootstrap';
-import { createBooking } from '../actions/bookings';
+import { create } from '../actions/bookings';
 import renderField from '../components/forms/renderField';
 import DatePicker from './DatePicker';
 import TIMES from '../utils/bookings';
 
 const form = reduxForm({
   form: 'booking-form',
+  fields: ['name', 'email', 'contactNumber', 'reservationTime'],
   validate
 });
 
 function validate(formProps) {
   const errors = {};
 
-  if (!formProps.fullName) {
-    errors.fullName = 'Please enter your full name';
+  if (!formProps.name) {
+    errors.name = 'Please enter your full name';
   }
 
   if (!formProps.email) {
@@ -27,16 +29,34 @@ function validate(formProps) {
     errors.contactNumber = 'Please enter a contact number';
   }
 
-  if (!formProps.time) {
-    errors.time = 'Please select a time';
+  if (!formProps.reservationTime) {
+    errors.reservationTime = 'Please select a time';
   }
 
   return errors;
 }
 
 class BookingForm extends Component {
+  constructor(props){
+    super(props);
+    this.state = { reservationTime: null };
+    this.setDate = this.setDate.bind(this);
+    this.setTime = this.setTime.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+  }
+
+  setDate(date) {
+    this.setState({ reservationTime: date });
+  }
+
+  setTime(e) {
+    const TIME = moment(this.state.reservationTime).format('DD-MM-YYYY').concat(' ').concat(e.target.value);
+    this.setState({ reservationTime: TIME });
+  }
+
   handleFormSubmit(formProps) {
-    this.props.createBooking(formProps);
+    formProps.reservationTime = moment(this.state.reservationTime, 'DD-MM-YYYY HH:mm');
+    this.props.create(formProps);
   }
 
   render() {
@@ -47,19 +67,20 @@ class BookingForm extends Component {
         <Row>
           <Col sm={12} smOffset={0}>
             <div className="bp-panel-light">
-              <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+              <form onSubmit={handleSubmit(this.handleFormSubmit)}>
                 <label className="bp-light-grey">Full Name</label>
-                <Field name="fullName" placeholder="e.g John Smith" className="form-control bp-input bp-margin-bottom" component={renderField} type="string" />
+                <Field name="name" placeholder="e.g John Smith" className="form-control bp-input bp-margin-bottom" component={renderField} type="string" />
                 <label className="bp-light-grey">Email</label>
                 <Field name="email" placeholder="e.g example@example.com" className="form-control bp-input bp-margin-bottom" component={renderField} type="string" />
                 <label className="bp-light-grey">Contact Number</label>
                 <Field name="contactNumber" placeholder="e.g 07123456789" className="form-control bp-input" component={renderField} type="string" />
                 <label className="bp-light-grey">Date</label>
-                <DatePicker />
+                <DatePicker name="date" onChange={this.setDate} />
                 <label className="bp-light-grey">Time (approx. 45 minutes)</label>
                 <Field
-                  name="time"
-                  className="form-control gc-input text-capitalize"
+                  onChange={this.setTime}
+                  name="reservationTime"
+                  className="form-control gc-input"
                   component="select"
                 >
                   {TIMES.map(code =>
@@ -87,4 +108,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { createBooking })(form(BookingForm));
+export default connect(mapStateToProps, { create })(form(BookingForm));
