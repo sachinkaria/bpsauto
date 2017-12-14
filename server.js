@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const config = require('./server/config/main');
 const chokidar = require('chokidar');
 const authRoutes = require('./server/routes/user');
+const reservationRoutes = require('./server/routes/reservation');
 
 // and create our instances
 const app = express();
@@ -44,6 +45,7 @@ app.use((req, res, next) => {
 });
 
 authRoutes(router);
+reservationRoutes(router);
 
 // Use our router configuration when we call /
 if (process.env.NODE_ENV === 'production') {

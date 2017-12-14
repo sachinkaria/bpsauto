@@ -1,16 +1,10 @@
-'use strict';
-
-/**
- * Module dependencies.
- */
-const _ = require('lodash');
-const mongoose = require('mongoose');
-
-const Reservation = mongoose.model('Reservation');
+ _ = require('lodash');
+const Reservation = require('../models/reservation');
 
 module.exports.create = create;
 
 function create(req, res) {
+  console.log('Creating Reservation');
   const reservation = new Reservation(req.body);
   reservation.save((err) => {
     if (err) return err;
