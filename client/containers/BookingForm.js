@@ -57,7 +57,7 @@ class BookingForm extends Component {
   }
 
   handleFormSubmit(formProps) {
-    formProps.reservationTime = moment(this.state.reservationTime, 'DD-MM-YYYY HH:mm');
+    formProps.reservationTime = moment.utc(this.state.reservationTime, 'DD-MM-YYYY HH:mm');
     this.props.create(formProps);
   }
 
