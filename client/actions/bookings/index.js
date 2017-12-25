@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { errorHandler, successHandler } from '../public';
+import { UPDATE_TIME_SLOTS } from '../types';
 
 export function create(reservation) {
   return function (dispatch) {
@@ -18,7 +19,7 @@ export function getAvailableTimes(date) {
   return function (dispatch) {
     axios.get(`/api/reservations/${date}/slots`)
       .then((response) => {
-        console.log(response);
+        dispatch({ type: UPDATE_TIME_SLOTS, payload: response.data });
       })
       .catch((error) => {
         errorHandler(dispatch, error.response);

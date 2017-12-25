@@ -6,7 +6,6 @@ import { Col, Panel, Row, Button } from 'react-bootstrap';
 import { create, getAvailableTimes } from '../actions/bookings';
 import renderField from '../components/forms/renderField';
 import DatePicker from './DatePicker';
-import TIMES from '../utils/bookings';
 
 const form = reduxForm({
   form: 'booking-form',
@@ -39,10 +38,15 @@ function validate(formProps) {
 class BookingForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { reservationTime: null };
+    this.state = { reservationTime: null, availableSlots: this.props.timeSlots };
     this.setDate = this.setDate.bind(this);
     this.setTime = this.setTime.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
+  }
+
+  componentWillReceiveProps(){
+    this.setState({ availableSlots: this.props.timeSlots });
   }
 
   setDate(date) {
@@ -78,25 +82,30 @@ class BookingForm extends Component {
                 <Field name="contactNumber" placeholder="e.g 07123456789" className="form-control bp-input" component={renderField} type="string" />
                 <label className="bp-light-grey">Date</label>
                 <DatePicker name="date" onChange={this.setDate} />
-                <label className="bp-light-grey">Time (approx. 45 minutes)</label>
-                <Row>
-                  <Col xs={6}>
-                    <Field
-                      onChange={this.setTime}
-                      name="reservationTime"
-                      className="form-control bp-input"
-                      component="select"
-                    >
-                      {TIMES.map(code =>
-                        (
-                          <option key={code} value={code}>
-                            {code}
-                          </option>
-                        )
-                      )}
-                    </Field>
-                  </Col>
-                </Row>
+                {
+                  this.state.availableSlots &&
+                    <div>
+                      <label className="bp-light-grey">Time (approx. 45 minutes)</label>
+                      <Row>
+                        <Col xs={6}>
+                          <Field
+                            onChange={this.setTime}
+                            name="reservationTime"
+                            className="form-control bp-input"
+                            component="select"
+                          >
+                            {this.state.availableSlots.map(code =>
+                              (
+                                <option key={code} value={code}>
+                                  {code}
+                                </option>
+                              )
+                            )}
+                          </Field>
+                        </Col>
+                      </Row>
+                    </div>
+                }
                 <Button type="submit" bsSize="large" block bsStyle="success" className="btn bp-btn bp-margin-top">Next</Button>
               </form>
             </div>
@@ -110,7 +119,8 @@ class BookingForm extends Component {
 function mapStateToProps(state) {
   return {
     errorMessage: state.auth.error,
-    message: state.auth.message
+    message: state.auth.message,
+    timeSlots: state.public.timeSlots
   };
 }
 
