@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import moment from 'moment';
 import { Col, Panel, Row, Button } from 'react-bootstrap';
-import { create } from '../actions/bookings';
+import { create, getAvailableTimes } from '../actions/bookings';
 import renderField from '../components/forms/renderField';
 import DatePicker from './DatePicker';
 import TIMES from '../utils/bookings';
@@ -37,7 +37,7 @@ function validate(formProps) {
 }
 
 class BookingForm extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = { reservationTime: null };
     this.setDate = this.setDate.bind(this);
@@ -46,7 +46,9 @@ class BookingForm extends Component {
   }
 
   setDate(date) {
-    this.setState({ reservationTime: date });
+    this.setState({ reservationTime: date }, () => {
+      this.props.getAvailableTimes(moment(this.state.reservationTime).format('DD-MM-YYYY'));
+    });
   }
 
   setTime(e) {
@@ -77,20 +79,24 @@ class BookingForm extends Component {
                 <label className="bp-light-grey">Date</label>
                 <DatePicker name="date" onChange={this.setDate} />
                 <label className="bp-light-grey">Time (approx. 45 minutes)</label>
-                <Field
-                  onChange={this.setTime}
-                  name="reservationTime"
-                  className="form-control gc-input"
-                  component="select"
-                >
-                  {TIMES.map(code =>
-                    (
-                      <option key={code} value={code}>
-                        {code}
-                      </option>
-                    )
-                  )}
-                </Field>
+                <Row>
+                  <Col xs={6}>
+                    <Field
+                      onChange={this.setTime}
+                      name="reservationTime"
+                      className="form-control bp-input"
+                      component="select"
+                    >
+                      {TIMES.map(code =>
+                        (
+                          <option key={code} value={code}>
+                            {code}
+                          </option>
+                        )
+                      )}
+                    </Field>
+                  </Col>
+                </Row>
                 <Button type="submit" bsSize="large" block bsStyle="success" className="btn bp-btn bp-margin-top">Next</Button>
               </form>
             </div>
@@ -108,4 +114,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { create })(form(BookingForm));
+export default connect(mapStateToProps, { create, getAvailableTimes })(form(BookingForm));

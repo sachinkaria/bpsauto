@@ -13,3 +13,15 @@ export function create(reservation) {
       });
   };
 }
+
+export function getAvailableTimes(date) {
+  return function (dispatch) {
+    axios.get(`/api/reservations/${date}/slots`)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        errorHandler(dispatch, error.response);
+      });
+  };
+}
