@@ -20,6 +20,10 @@ export default class DatePicker extends React.Component {
 
   render() {
     const { focused, date } = this.state;
+    const isDayBlocked = (day) => {
+      const DATE = new Date(day);
+      return DATE.getDay() === 0;
+    };
 
     return (
       <div className="bp-margin-bottom">
@@ -31,6 +35,7 @@ export default class DatePicker extends React.Component {
           onFocusChange={this.onFocusChange}
           placeholder="Select a Date"
           numberOfMonths={1}
+          isDayBlocked={isDayBlocked}
         />
       </div>
     );
