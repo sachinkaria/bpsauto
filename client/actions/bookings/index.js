@@ -15,11 +15,23 @@ export function create(reservation) {
   };
 }
 
-export function getAvailableTimes(date) {
+export function getAvailableSlots(date) {
   return function (dispatch) {
     axios.get(`/api/reservations/${date}/slots`)
       .then((response) => {
         dispatch({ type: UPDATE_TIME_SLOTS, payload: response.data });
+      })
+      .catch((error) => {
+        errorHandler(dispatch, error.response);
+      });
+  };
+}
+
+export function list(date) {
+  return function (dispatch) {
+    axios.get(`/api/reservations/${date}`)
+      .then((response) => {
+        console.log(response);
       })
       .catch((error) => {
         errorHandler(dispatch, error.response);

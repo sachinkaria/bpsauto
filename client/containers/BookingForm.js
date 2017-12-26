@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import moment from 'moment';
 import { Col, Panel, Row, Button } from 'react-bootstrap';
-import { create, getAvailableTimes } from '../actions/bookings';
+import { create, getAvailableSlots } from '../actions/bookings';
 import renderField from '../components/forms/renderField';
 import DatePicker from './DatePicker';
 
@@ -51,7 +51,7 @@ class BookingForm extends Component {
 
   setDate(date) {
     this.setState({ reservationTime: date }, () => {
-      this.props.getAvailableTimes(moment(this.state.reservationTime).format('DD-MM-YYYY'));
+      this.props.getAvailableSlots(moment(this.state.reservationTime).format('DD-MM-YYYY'));
     });
   }
 
@@ -124,4 +124,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { create, getAvailableTimes })(form(BookingForm));
+export default connect(mapStateToProps, { create, getAvailableSlots })(form(BookingForm));

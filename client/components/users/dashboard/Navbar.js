@@ -8,39 +8,18 @@ const DashboardNavBar = (props) => {
     <div>
       <Navbar className="bp-dashboard-navbar">
         <ul>
-          {
-            props.userRole === 'chef' ?
-              <div>
-                <li className="bp-dashboard-navbar-item">
-                  <Link to={'/dashboard/profile/basics'}>
-                    <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('profile') })}>Profile</p>
-                  </Link>
-                </li>
-                <li className="bp-dashboard-navbar-item">
-                  <Link to={'/dashboard/account/settings'}>
-                    <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('account') })}>Account</p>
-                  </Link>
-                </li>
-                <li className="bp-dashboard-navbar-item">
-                  <Link to={'/dashboard/bookings'}>
-                    <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('bookings') })}>Bookings</p>
-                  </Link>
-                </li>
-              </div>
-              :
-              <div>
-                <li className="bp-dashboard-navbar-item">
-                  <Link to={'/dashboard/account/settings'}>
-                    <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('account') })}>Account</p>
-                  </Link>
-                </li>
-                <li className="bp-dashboard-navbar-item">
-                  <Link to={'/dashboard/bookings'}>
-                    <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('bookings') })}>Bookings</p>
-                  </Link>
-                </li>
-              </div>
-          }
+          <div>
+            <li className="bp-dashboard-navbar-item">
+              <Link to={'/dashboard/account/settings'}>
+                <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('account') })}>Account</p>
+              </Link>
+            </li>
+            <li className="bp-dashboard-navbar-item">
+              <Link to={'/dashboard/bookings'}>
+                <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('bookings') })}>Bookings</p>
+              </Link>
+            </li>
+          </div>
         </ul>
       </Navbar>
     </div>
