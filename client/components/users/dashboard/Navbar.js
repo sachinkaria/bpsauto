@@ -10,12 +10,12 @@ const DashboardNavBar = (props) => {
         <ul>
           <div>
             <li className="bp-dashboard-navbar-item">
-              <Link to={'/dashboard/account/settings'}>
+              <Link to={'/dashboard'}>
                 <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('account') })}>Account</p>
               </Link>
             </li>
             <li className="bp-dashboard-navbar-item">
-              <Link to={'/dashboard/bookings'}>
+              <Link to={'/dashboard'}>
                 <p className={classNames('bp-text bp-light-grey', { 'bp-white': props.location.includes('bookings') })}>Bookings</p>
               </Link>
             </li>

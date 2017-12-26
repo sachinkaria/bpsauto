@@ -7,5 +7,6 @@ export const SHOW_SUCCESS = 'show_success';
 export const HIDE_ERROR = 'hide_error';
 export const HIDE_SUCCESS = 'hide_success';
 export const UPDATE_TIME_SLOTS = 'update_time_slots';
+export const UPDATE_RESERVATIONS = 'update_reservations';
 export const FORGOT_PASSWORD_REQUEST = 'forgot_password_request';
 export const RESET_PASSWORD_REQUEST = 'reset_password_request';

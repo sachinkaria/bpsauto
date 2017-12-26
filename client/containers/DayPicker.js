@@ -4,7 +4,7 @@ import { SingleDatePicker } from 'react-dates';
 export default class DatePicker extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { focused: false, date: null };
+    this.state = { focused: true, date: null };
     this.onDateChange = this.onDateChange.bind(this);
     this.onFocusChange = this.onFocusChange.bind(this);
   }
@@ -30,13 +30,12 @@ export default class DatePicker extends React.Component {
         <SingleDatePicker
           id="date_input"
           date={date}
-          focused={focused}
+          focused
           onDateChange={this.onDateChange}
           onFocusChange={this.onFocusChange}
-          placeholder="Select a Date"
           numberOfMonths={1}
           isDayBlocked={isDayBlocked}
-          keepOpenOnDateSelect={this.props.keepOpenOnDateSelect}
+          keepOpenOnDateSelect
         />
       </div>
     );
