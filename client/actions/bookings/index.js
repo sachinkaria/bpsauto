@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { errorHandler, successHandler } from '../public';
-import { UPDATE_RESERVATIONS, UPDATE_DATE_SELECTED, UPDATE_TIME_SLOTS, UPDATE_DATE_CLICKED } from '../types';
+import { UPDATE_RESERVATIONS, RESERVATION_CREATED, UPDATE_DATE_SELECTED, UPDATE_TIME_SLOTS, UPDATE_DATE_CLICKED } from '../types';
 
 export function create(reservation) {
   return function (dispatch) {
     axios.post('/api/reservations', reservation)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        dispatch({ type: RESERVATION_CREATED, payload: true });
         successHandler(dispatch, 'Your booking was successfully created.');
       })
       .catch((error) => {

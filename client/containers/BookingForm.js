@@ -69,48 +69,53 @@ class BookingForm extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <Panel className="bp-background-dark-grey">
-        <Row>
-          <Col sm={12} smOffset={0}>
-            <div className="bp-panel-light">
-              <form onSubmit={handleSubmit(this.handleFormSubmit)}>
-                <label className="bp-light-grey">Full Name</label>
-                <Field name="name" placeholder="e.g John Smith" className="form-control bp-input bp-margin-bottom" component={renderField} type="string" />
-                <label className="bp-light-grey">Email</label>
-                <Field name="email" placeholder="e.g example@example.com" className="form-control bp-input bp-margin-bottom" component={renderField} type="string" />
-                <label className="bp-light-grey">Contact Number</label>
-                <Field name="contactNumber" placeholder="e.g 07123456789" className="form-control bp-input" component={renderField} type="string" />
-                <label className="bp-light-grey">Date</label>
-                <DatePicker name="date" onChange={this.setDate} />
-                {
-                  this.state.availableSlots &&
-                    <div>
-                      <label className="bp-light-grey">Time (approx. 45 minutes)</label>
-                      <Row>
-                        <Col xs={6}>
-                          <Field
-                            onChange={this.setTime}
-                            name="reservationTime"
-                            className="form-control bp-input"
-                            component="select"
-                          >
-                            {this.state.availableSlots.map(code =>
-                              (
-                                <option key={code} value={code}>
-                                  {code}
-                                </option>
-                              )
-                            )}
-                          </Field>
-                        </Col>
-                      </Row>
-                    </div>
-                }
-                <Button type="submit" bsSize="large" block bsStyle="success" className="btn bp-btn bp-margin-top">Next</Button>
-              </form>
-            </div>
-          </Col>
-        </Row>
+      <Panel className="bp-background-dark-grey bp-padding-large">
+        {
+          this.props.reservationCreated ?
+              <p className="bp-text bp-text--lg bp-white text-center">Thank you! Your reservation has been made.</p>
+              :
+            <Row>
+              <Col sm={12} smOffset={0}>
+                <div className="bp-panel-light">
+                  <form onSubmit={handleSubmit(this.handleFormSubmit)}>
+                    <label className="bp-light-grey">Full Name</label>
+                    <Field name="name" placeholder="e.g John Smith" className="form-control bp-input bp-margin-bottom" component={renderField} type="string" />
+                    <label className="bp-light-grey">Email</label>
+                    <Field name="email" placeholder="e.g example@example.com" className="form-control bp-input bp-margin-bottom" component={renderField} type="string" />
+                    <label className="bp-light-grey">Contact Number</label>
+                    <Field name="contactNumber" placeholder="e.g 07123456789" className="form-control bp-input" component={renderField} type="string" />
+                    <label className="bp-light-grey">Date</label>
+                    <DatePicker name="date" onChange={this.setDate} />
+                    {
+                      this.state.availableSlots &&
+                      <div>
+                        <label className="bp-light-grey">Time (approx. 45 minutes)</label>
+                        <Row>
+                          <Col xs={6}>
+                            <Field
+                              onChange={this.setTime}
+                              name="reservationTime"
+                              className="form-control bp-input"
+                              component="select"
+                            >
+                              {this.state.availableSlots.map(code =>
+                                (
+                                  <option key={code} value={code}>
+                                    {code}
+                                  </option>
+                                )
+                              )}
+                            </Field>
+                          </Col>
+                        </Row>
+                      </div>
+                    }
+                    <Button type="submit" bsSize="large" block bsStyle="success" className="btn bp-btn bp-margin-top">Next</Button>
+                  </form>
+                </div>
+              </Col>
+            </Row>
+        }
       </Panel>
     );
   }
@@ -121,7 +126,8 @@ function mapStateToProps(state) {
     errorMessage: state.auth.error,
     message: state.auth.message,
     timeSlots: state.public.timeSlots,
-    dateClicked: state.public.dateClicked
+    dateClicked: state.public.dateClicked,
+    reservationCreated: state.public.reservationCreated
   };
 }
 

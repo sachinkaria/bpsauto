@@ -10,5 +10,6 @@ export const UPDATE_TIME_SLOTS = 'update_time_slots';
 export const UPDATE_DATE_CLICKED = 'update_date_clicked';
 export const UPDATE_RESERVATIONS = 'update_reservations';
 export const UPDATE_DATE_SELECTED = 'update_date_selected';
+export const RESERVATION_CREATED = 'reservation_created';
 export const FORGOT_PASSWORD_REQUEST = 'forgot_password_request';
 export const RESET_PASSWORD_REQUEST = 'reset_password_request';

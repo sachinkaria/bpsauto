@@ -26,7 +26,7 @@ const NavigationBar = (props) => {
               <div>
                 <Nav pullRight>
                   <NavItem>
-                    <Link>
+                    <Link to={'/dashboard'}>
                       <p className="bp-text bp-text--dark-grey">
                         Dashboard
                       </p>
