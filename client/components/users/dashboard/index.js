@@ -14,12 +14,12 @@ class Dashboard extends React.Component {
   }
 
   componentWillReceiveProps() {
+    console.log(this.props.reservations);
     this.setState({ reservations: this.props.reservations })
   }
 
   onChange(date) {
     const DATE = moment(date).format('DD-MM-YYYY');
-    console.log(DATE);
     this.props.list(DATE);
   }
 
@@ -34,11 +34,24 @@ class Dashboard extends React.Component {
           </Col>
           <Col sm={6}>
             <h3>Reservations</h3>
-            <Panel>
-              <p>
-                There are no reservations on this date.
-              </p>
-            </Panel>
+            { this.props.reservations ?
+              (
+                this.props.reservations.map((reservation) => (
+                    <Panel>
+                      <p>
+                        {reservation.name}
+                      </p>
+                    </Panel>
+                  )
+                )
+              )
+                :
+              <Panel>
+                <p>
+                  There are no reservations on this date.
+                </p>
+              </Panel>
+            }
           </Col>
         </Row>
       </div>
@@ -48,7 +61,8 @@ class Dashboard extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    reservations: state.reservation.list
+    reservations: state.reservation.list,
+    date: state.reservation.date
   };
 }
 

@@ -120,7 +120,8 @@ function mapStateToProps(state) {
   return {
     errorMessage: state.auth.error,
     message: state.auth.message,
-    timeSlots: state.public.timeSlots
+    timeSlots: state.public.timeSlots,
+    dateClicked: state.public.dateClicked
   };
 }
 
